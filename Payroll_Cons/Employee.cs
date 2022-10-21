@@ -48,7 +48,7 @@ internal class Employee
         if (Salary >= MinimumWage)
             DisabilityContribution = Math.Round((2.9 / 100 * MinimumWage),2);
         else if (Salary <= MinimumWage)
-            DisabilityContribution = Math.Round((2.9 / 100 * MinimumWage),2);
+            DisabilityContribution = Math.Round((2.9 / 100 * Salary),2);
         else
             Console.WriteLine("Ошибка");
     }
@@ -62,11 +62,16 @@ internal class Employee
     {
         Console.ForegroundColor = ConsoleColor.Yellow;   
         Console.WriteLine(($"Работник: {EmployeeName}"));
+        Taxes(Salary, ChildDeduction);
         Console.WriteLine($"Сумма налога к удержанию: {TaxesSum}");
         Console.WriteLine($"Денежная выплата работнику: {EmployeePayment}");
+        Pension(Salary, Employee.MinimumWage);
         Console.WriteLine($"ОПС: {PensionInsurance}");
+        Medical(Salary, Employee.MinimumWage);
         Console.WriteLine($"ОМС: {MedicalInsurance}");
+        Disability(Salary, Employee.MinimumWage);
         Console.WriteLine($"Взнос по ВНиМ: {DisabilityContribution}");
+        Social(Salary);
         Console.WriteLine($"ФСС: {SocialInsurance}");
         Console.WriteLine("-------------------------------------------------------------");
         Console.ResetColor();
