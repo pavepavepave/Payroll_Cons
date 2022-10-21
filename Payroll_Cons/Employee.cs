@@ -60,18 +60,20 @@ internal class Employee
 
     public void PrintResult()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;   
-        Console.WriteLine(($"Работник: {EmployeeName}"));
         Taxes(Salary, ChildDeduction);
+        Pension(Salary, Employee.MinimumWage);
+        Medical(Salary, Employee.MinimumWage);
+        Disability(Salary, Employee.MinimumWage);
+        Social(Salary);
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("-------------------------------------------------------------");
+        Console.WriteLine(($"Работник: {EmployeeName}"));
         Console.WriteLine($"Сумма налога к удержанию: {TaxesSum}");
         Console.WriteLine($"Денежная выплата работнику: {EmployeePayment}");
-        Pension(Salary, Employee.MinimumWage);
         Console.WriteLine($"ОПС: {PensionInsurance}");
-        Medical(Salary, Employee.MinimumWage);
         Console.WriteLine($"ОМС: {MedicalInsurance}");
-        Disability(Salary, Employee.MinimumWage);
         Console.WriteLine($"Взнос по ВНиМ: {DisabilityContribution}");
-        Social(Salary);
         Console.WriteLine($"ФСС: {SocialInsurance}");
         Console.WriteLine("-------------------------------------------------------------");
         Console.ResetColor();
