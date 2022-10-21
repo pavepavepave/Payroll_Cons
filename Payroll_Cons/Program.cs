@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Linq;
 
 
 public class MainClass
@@ -14,13 +13,13 @@ public class MainClass
         firstEmployee.Salary = double.Parse(Console.ReadLine());
         Console.Write("Введите сумму вычета за ребенка: ");
         firstEmployee.ChildDeduction = double.Parse(Console.ReadLine());
+
         firstEmployee.Taxes(firstEmployee.Salary, firstEmployee.ChildDeduction);
+        firstEmployee.Pension(firstEmployee.Salary, Employee.MinimumWage);
+        firstEmployee.Medical(firstEmployee.Salary, Employee.MinimumWage);
+        firstEmployee.Disability(firstEmployee.Salary, Employee.MinimumWage);
+        firstEmployee.Social(firstEmployee.Salary);
         firstEmployee.PrintResult();
-
-
-        
-
-
-
+          
     }
 }
