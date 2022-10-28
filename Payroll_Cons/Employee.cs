@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 internal class Employee
 {
     public string EmployeeName { get; set; } //имя работника
-    public const double MinimumWage = 13890; //мрот
+    const double MinimumWage = 13890; //мрот
     public double Salary { get; set; } // зарплата
     public double ChildDeduction { get; set; } //вычет за ребенка
     private double TaxesSum = 0; //налог
@@ -33,7 +33,7 @@ internal class Employee
             Console.WriteLine("Ошибка");
     }
 
-    public void Medical(double Salary, double MinimumWage) //опс
+    public void Medical(double Salary, double MinimumWage) //омс
     {
         if (Salary <= MinimumWage && Salary >= 0)
             MedicalInsurance = Salary * 5.1 / 100;
@@ -43,7 +43,7 @@ internal class Employee
             Console.WriteLine("Ошибка");
     }
 
-    public void Disability(double Salary, double MinimumWage)
+    public void Disability(double Salary, double MinimumWage) //вниим
     {
         if (Salary >= MinimumWage)
             DisabilityContribution = Math.Round((2.9 / 100 * MinimumWage),2);
@@ -53,8 +53,12 @@ internal class Employee
             Console.WriteLine("Ошибка");
     }
 
+    public void Social(double Salary) => SocialInsurance = Math.Round((Salary * 0.002), 2);  //фсс
+    
     public void Social(double Salary) => SocialInsurance = Math.Round((Salary * 0.002), 2); 
     
+        SocialInsurance = Math.Round((Salary * 0.002), 2);
+    }
 
     public void PrintResult()
     {
@@ -75,7 +79,7 @@ internal class Employee
         Console.WriteLine($"ФСС: {SocialInsurance}");
         Console.WriteLine("-------------------------------------------------------------");
         Console.ResetColor();
-    }
+    } //выводим результат
 
 
 
