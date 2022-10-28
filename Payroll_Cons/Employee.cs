@@ -53,10 +53,8 @@ internal class Employee
             Console.WriteLine("Ошибка");
     }
 
-    public void Social(double Salary)
-    {
-        SocialInsurance = Math.Round((Salary * 0.002), 2);
-    }
+    public void Social(double Salary) => SocialInsurance = Math.Round((Salary * 0.002), 2); 
+    
 
     public void PrintResult()
     {
@@ -67,8 +65,8 @@ internal class Employee
         Social(Salary);
 
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("-------------------------------------------------------------");
         Console.WriteLine(($"Работник: {EmployeeName}"));
+        Console.WriteLine(($"Зарплата: {Salary}"));
         Console.WriteLine($"Сумма налога к удержанию: {TaxesSum}");
         Console.WriteLine($"Денежная выплата работнику: {EmployeePayment}");
         Console.WriteLine($"ОПС: {PensionInsurance}");

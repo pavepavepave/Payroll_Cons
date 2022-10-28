@@ -10,28 +10,23 @@ public class MainClass
 
         for (int i = 0; i < worker.Length; ++i)
         {
-            Employee firstEmployee = new Employee();
+            worker[i] = new Employee();
             Console.Write("Введите ФИО сотрудника: ");
-            firstEmployee.EmployeeName = Console.ReadLine();
+            worker[i].EmployeeName = Console.ReadLine();
             Console.Write("Введите з/п сотрудника: ");
-            firstEmployee.Salary = double.Parse(Console.ReadLine());
+            worker[i].Salary = double.Parse(Console.ReadLine());
             Console.Write("Введите сумму вычета за ребенка: ");
-            firstEmployee.ChildDeduction = double.Parse(Console.ReadLine());
+            worker[i].ChildDeduction = double.Parse(Console.ReadLine());
+            Console.WriteLine("-------------------------------------------------------------");
+        }
 
-            firstEmployee.PrintResult();
+        for (int i = 0; i < worker.Length; i++)
+        {
+            worker[i].PrintResult();
         }
         Console.ReadKey();
 
 
-
-
-
-
-
-
-      
-
-
-
+       
     }
 }
