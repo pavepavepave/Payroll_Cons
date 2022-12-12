@@ -10,7 +10,7 @@ public class MainClass
 
         for (int i = 0; i < worker.Length; ++i)
         {
-            worker[i] = new Employee();
+            worker[i] = new Employee(); 
             Console.Write("Введите ФИО сотрудника: ");
             worker[i].EmployeeName = Console.ReadLine();
             Console.Write("Введите з/п сотрудника: ");

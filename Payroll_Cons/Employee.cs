@@ -55,11 +55,6 @@ internal class Employee
 
     public void Social(double Salary) => SocialInsurance = Math.Round((Salary * 0.002), 2);  //фсс
     
-    public void Social(double Salary) => SocialInsurance = Math.Round((Salary * 0.002), 2); 
-    
-        SocialInsurance = Math.Round((Salary * 0.002), 2);
-    }
-
     public void PrintResult()
     {
         Taxes(Salary, ChildDeduction);
